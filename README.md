@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=S_t3g5wqyh8
 - JJY 信号オンを内蔵 LED でモニターできます。
 
 ### 4. Wifi 接続
-　WifiManager を使用しています。使い方は、WifiManager の説明を参照ください。
+　WiFiManager を使用しています。使い方は、WiFiManager の説明を参照ください。
 
 https://github.com/tzapu/WiFiManager
 

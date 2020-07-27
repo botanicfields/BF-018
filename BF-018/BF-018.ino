@@ -356,7 +356,7 @@ void loop() {
   M5.update();
 
   // button-A: LCD-on for a while
-  if (M5.BtnA.wasReleased()) {
+  if(M5.BtnA.wasReleased()) {
     showStatus(true);
     showRemain = SHOW_DULATION;
   } 
@@ -369,7 +369,7 @@ void loop() {
   }
 
   // button-B: LED monitor on/off
-  if (M5.BtnB.wasReleased()) {
+  if(M5.BtnB.wasReleased()) {
     led_enable = !led_enable;
   } 
 

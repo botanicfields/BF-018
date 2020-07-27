@@ -253,7 +253,7 @@ const int SHOW_DULATION   = 5000 / UPDATE_INTERVAL;  // dulation in ms / INTERVA
 int showRemain = 0;
 
 void showSetup() {
-  M5.Lcd.setRotation(3);
+  M5.Lcd.setRotation(1);
   M5.Lcd.fillScreen(BLACK);
   M5.Axp.ScreenBreath(7);
 }

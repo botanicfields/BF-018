@@ -7,6 +7,7 @@ M5StickC で動作する標準電波（JJY）シミュレータ
 　M5StickC で電波時計のための JJY もどきを生成します。JJY が届かないところにある電波時計の時刻合わせができます。Wifi 経由 NTP で時刻を取得し、GPIO から JJY 信号を出力します。
  
 解説記事:
+
 https://qiita.com/BotanicFields/items/a78c80f947388caf0d36
 
 ### 2. アンテナの準備

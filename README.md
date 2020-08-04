@@ -13,9 +13,13 @@ https://qiita.com/BotanicFields/items/a78c80f947388caf0d36
 　送信にはアンテナが必要です。GPIO26 と GND 間に 1kΩ 程度の抵抗を途中に挟んで 1m 程度の電線を接続して実験できます。電線を電波時計の至近距離に這わせると、電波時計が電線からの磁界を受信してくれます。
 
 動作の様子:
+
 https://youtu.be/bnQUSN_6Le4
+
 https://youtu.be/G1etA91rkSs
+
 https://youtu.be/xq9HfA1_HZM
+
 https://youtu.be/S_t3g5wqyh8
 
 ### 3. 使い方

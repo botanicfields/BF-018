@@ -23,10 +23,10 @@ https://youtu.be/xq9HfA1_HZM
 
 https://youtu.be/S_t3g5wqyh8
 
-### 3. 使い方
+### 3. 動作
 
-- 電源投入またはリセット後、Wifi に接続し、NTP で日時を合わせ、即座に標準信号を送出を開始します。 
-- ボタン A で LCD に状況を表示できます。
+- 電源投入またはリセット後、まず Wifi 接続の動作に入ります。
+- Wifi 接続が完了後、NTP で日時を取得し、標準信号の送出を開始します。 
 - JJY 信号オンを内蔵 LED でモニターできます。
 
 ### 4. Wifi 接続
@@ -34,9 +34,8 @@ https://youtu.be/S_t3g5wqyh8
 
 https://github.com/tzapu/WiFiManager
 
-### 4. LCD
+### 5. LCD
 　ボタンA で状況（SSID, IPアドレス, 日付、時刻, LED モニタ－オン・オフ）を表示します。約 5 秒で自動的に表示が消えます。
 
-### 5. LED
+### 6. LED
 　ボタンB で LED によるモニターをオン・オフできます。
-

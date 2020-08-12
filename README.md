@@ -11,17 +11,17 @@ M5StickC で動作する標準電波（JJY）シミュレータ
 https://qiita.com/BotanicFields/items/a78c80f947388caf0d36
 
 ### 2. アンテナの準備
-　送信にはアンテナが必要です。GPIO26 と GND 間に 1kΩ 程度の抵抗を途中に挟んで 1m 程度の電線を接続して実験できます。電線を電波時計の至近距離に這わせると、電波時計が電線からの磁界を受信してくれます。
+　送信にはアンテナが必要です。GPIO26 と GND 間に 1kΩ 程度の抵抗を途中に挟んで 1m 程度の電線を接続して実験できます。電線を電波時計の至近距離に這わせると、電波時計が電線からの磁界を受信してくれます。動作の様子です。
 
-動作の様子:
+https://youtu.be/S_t3g5wqyh8
+
+　アンテナパターンを搭載したプリント基板を作成しました。動作の様子です。
 
 https://youtu.be/LF4P73INSro
 
 https://youtu.be/ODojBB31gAc
 
 https://youtu.be/gpBwHdANwyw
-
-https://youtu.be/S_t3g5wqyh8
 
 ### 3. 動作
 

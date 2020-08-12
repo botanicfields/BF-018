@@ -15,15 +15,15 @@ https://youtu.be/S_t3g5wqyh8
 
 　アンテナパターンを搭載したプリント基板を作成しました。
 
-電波時計内のバーアンテナの長手方向の延長線上に置いた動作例: 距離70cm
+- 電波時計内のバーアンテナの長手方向の延長線上に置いた動作例: 距離70cm
 
 https://youtu.be/LF4P73INSro
 
-電波時計の正面に置いた動作例（M5StickCをストレートコネクタに装着）: 距離30cm
+- 電波時計の正面に置いた動作例（M5StickCをストレートコネクタに装着）: 距離30cm
 
 https://youtu.be/gpBwHdANwyw
 
-YouTube - BF-018: JJY Antenna for M5StickC - with right-angle connecter
+- 電波時計の正面に置いた動作例（M5StickCをL型コネクタに装着）: 距離30cm
 
 https://youtu.be/ODojBB31gAc
 

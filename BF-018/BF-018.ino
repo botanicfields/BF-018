@@ -2,7 +2,8 @@
 // BF-018
 // JJY Simulator for M5StickC
 //
-#include <M5StickC.h>
+#include <M5StickC.h>        // exclusive to M5StickC
+//#include <M5StickCPlus.h>  // exclusive to M5StickCPlus
 #include <Ticker.h>
 #include <WiFi.h>
 #include <WiFiManager.h>  // https://github.com/tzapu/WiFiManager

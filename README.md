@@ -1,7 +1,9 @@
 # BF-018
 JJY Simulator for M5StickC
 
-M5StickC で動作する標準電波（JJY）シミュレータ
+M5StickC, M5StickCPlus で動作する標準電波（JJY）シミュレータ
+
+※M5StickCPlusの場合は、#include <M5StickC.h> をコメント化して無効にし、#include <M5StickCPlus.h> を有効にしてください。
 
 ### 1. 概要
 　M5StickC で電波時計のための JJY もどきを生成します。JJY が届かないところにある電波時計の時刻合わせができます。Wifi 経由 NTP で時刻を取得し、GPIO から JJY 信号を出力します。

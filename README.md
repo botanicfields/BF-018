@@ -1,5 +1,5 @@
 # BF-018
-JJY Simulator for M5StickC
+JJY Simulator for M5StickC and M5StickCPlus
 
 M5StickC, M5StickCPlus で動作する標準電波（JJY）シミュレータ
 

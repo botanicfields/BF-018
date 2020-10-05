@@ -232,10 +232,10 @@ int TcoValue()
   case 50: tco = day_of_week & 0x04;  break;
   case 51: tco = day_of_week & 0x02;  break;
   case 52: tco = day_of_week & 0x01;  break;
+  case 53: tco = 0;                   break;
   case 54: tco = 0;                   break;
   case 55: tco = 0;                   break;
   case 56: tco = 0;                   break;
-  case 53: tco = 0;                   break;
   case 57: tco = 0;                   break;
   case 58: tco = 0;                   break;
   case 59: tco = marker;              break;

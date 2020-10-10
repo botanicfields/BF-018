@@ -10,6 +10,9 @@ M5StickC, M5StickCPlus で動作する標準電波（JJY）シミュレータ
  
 解説記事: https://qiita.com/BotanicFields/items/a78c80f947388caf0d36
 
+### 2. ソフトウェア
+　Arduino IDE for ESP32 を使用しています。M5StickC ライブラリが必要です。Wifi 設定のために、WifiManager (by Tzapu, Tablatronix) が必要です。
+
 ### 2. アンテナの準備
 　送信にはアンテナが必要です。GPIO26 と GND 間に 1kΩ 程度の抵抗を途中に挟んで 1m 程度の電線を接続して実験できます。電線を電波時計の至近距離に這わせると、電波時計が電線からの磁界を受信してくれます。動作の様子です。
 

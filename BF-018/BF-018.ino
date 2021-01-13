@@ -8,6 +8,9 @@
 #include <WiFi.h>
 #include <WiFiManager.h>  // https://github.com/tzapu/WiFiManager
 
+// initialize Wifimanager
+WiFiManager wm;
+
 // for NTP and time
 const long  gmt_offset = 3600 * 9;  // JST-9
 const int   daylight   = 3600 * 0;  // No daylight time
@@ -336,7 +339,6 @@ void setup()
   ShowStatus();
 
   // connect Wifi
-  WiFiManager wm;
   // wm.resetSettings();  // for testing
   if (!wm.autoConnect())
     Serial.println("Failed to connect");

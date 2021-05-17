@@ -12,7 +12,7 @@
 WiFiManager wm;
 
 // for NTP and time
-const long  gmt_offset = 3600 * 9;  // JST-9
+const int   gmt_offset = 3600 * 9;  // JST-9
 const int   daylight   = 3600 * 0;  // No daylight time
 const char* ntp_server = "pool.ntp.org";
 struct tm      td;  // time of day .. year, month, day, hour, minute, second
@@ -33,7 +33,7 @@ bool      led_enable = true;  //
 // Ticker for TCO(Time Code Output) generation
 const int ticker_period = 100;  // 100ms
 const int marker = 0xff;        // marker code which TcoValue() returns 
-long      last_usec;            // last time in microsecond for statistics of Ticker
+int       last_usec;            // last time in microsecond for statistics of Ticker
 Ticker    tk;
 
 // main task of TCO
@@ -45,7 +45,7 @@ void TcoGen()
   }
 
   gettimeofday(&tv, NULL);
-  long tv_100ms = tv.tv_usec / 100000L;
+  int tv_100ms = tv.tv_usec / 100000L;
   switch (tv_100ms) {
   case 0: Tco000ms(); break;
   case 2: Tco200ms(); break;
@@ -55,15 +55,15 @@ void TcoGen()
   }
 
   // statistics of tv_usec
-  long now_usec = tv.tv_usec;
+  int now_usec = tv.tv_usec;
   if (now_usec < 100000L)
     now_usec += 1000000L;  // 0..99999 --> 100000..199999
-  long tk_deviation = now_usec - last_usec - 100000L;  // ticker deviation in micro second
+  int tk_deviation = now_usec - last_usec - 100000L;  // ticker deviation in micro second
   last_usec = tv.tv_usec;
   
-  static long   tk_count  = 0L;
-  static long   tk_max    = 0L;
-  static long   tk_min    = 0L;
+  static int    tk_count  = 0;
+  static int    tk_max    = 0;
+  static int    tk_min    = 0;
   static double tk_sum    = 0.0;
   static double tk_sq_sum = 0.0;
   ++tk_count;
@@ -74,7 +74,7 @@ void TcoGen()
   tk_sum += (double)tk_deviation;
   tk_sq_sum += (double)tk_deviation * (double)tk_deviation;  
 
-  static long tk_distribution[9] = {0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L};
+  static int tk_distribution[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
   if      (tk_deviation < -50000) ++tk_distribution[0];  //     ~ -50ms
   else if (tk_deviation <  -5000) ++tk_distribution[1];  //     ~  -5ms
   else if (tk_deviation <   -500) ++tk_distribution[2];  //     ~  -0.5ms
@@ -169,7 +169,7 @@ int TcoValue()
   int days = td.tm_mday;
   for (int i = 0; i < td.tm_mon; ++i)  // td.tm_mon starts from 0
     days += days_of_month[i];
-  if ((td.tm_mon >= 2) && ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+  if ((td.tm_mon >= 2) && (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)))
     ++days;
   int bcd_days = Int3bcd(days);
 

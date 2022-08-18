@@ -107,7 +107,7 @@ WL_CONNECTED以外の場合、LCDの最上段に赤字で表示
 - config portalの情報を表示  
 WiFiManagerがconfig portalを起動した場合、アクセス先のSSIDとIPアドレスを表示
 
-詳細: [JJYシミュレータの状態表示]<img src="./wifi_status.JPG">
+詳細: [JJYシミュレータの状態表示]<img src="./wifi_status.jpg">
 
 ### (6) M5StickC PlusのLCD表示の文字の大きさを改善
 　GFXFontを使用して適当な大きさの文字で表示する様にしました。フォルダにFree_Fonts.hを含めていますが、M5StickC Plusのライブラリの次回リリースで取り込まれると思いますので、それ以降は削除して参照部分も修正する予定です。

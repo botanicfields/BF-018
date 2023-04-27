@@ -1,6 +1,9 @@
 # JJY Simulator for M5StickC and M5StickC Plus
 ## M5StickC, M5StickC Plusで動作する標準電波(JJY)シミュレータ
 
+### 2023/4/27 修正
+- BF-018Rev2.inoにおいてPWMの設定を改善しました。
+
 ### Rev.2
 - フォルダ: BF-018Rev2
 - M5StickCの場合は、#define M5STICKCPLUS をコメントアウトしてください。
@@ -16,14 +19,14 @@
 - Qiita [標準電波 JJY もどきを M5StickC / M5Atom の Ticker で生成する](https://qiita.com/BotanicFields/items/a78c80f947388caf0d36)
 
 ## 2. ソフトウェア
-　Rev.2を確認した環境は以下のとおりです。この版数以降での動作が期待できます。
+　Rev.2を2023/4/27に確認した環境は以下のとおりです。この版数以降での動作が期待できます。
 #### Arduino IDE:
-- 1.8.19 (Windows11)
+- 2.1.0 (Windows11)
 #### Boards manager:
-- M5Stack by M5Stack official version 2.0.4
+- M5Stack by M5Stack official version 2.0.6
 #### Library:
-- M5StickC 0.2.8 / M5StickCPlus 0.1.0
-- tzapu/WifiManager by Tablatronix 2.0.12-beta
+- M5StickC 0.2.8 / M5StickCPlus 0.0.8
+- tzapu/WifiManager by Tablatronix 2.0.15-rc.1
 
 ## 3. ハードウェア
 　JJY信号の送信にはアンテナが必要です。GPIO26とGND間に1kΩ程度の抵抗を途中に挟んで1m程度の電線を接続して実験できます。電線を電波時計の至近距離に這わせると電波時計が電線からの磁界を受信してくれます。M5StickC Plusは、M5StickCとは異なり、特にアンテナを接続しなくても時刻が合うことがあります。電波時計の機種にも依るかもしれません。
@@ -77,22 +80,16 @@ YouTube [BF-018: JJY Antenna for M5StickC - with right-angle connecter](https://
 ### (3) SSID/Keyを消去する操作を追加
 　接続先のWiFiアクセスポイントを変更する場合、SSID/Keyの設定を変更します。古いアクセスポイントが撤去済の場合、WiFiManagerのconfigration portalが自動的に起動します。古いアクセスポイントが稼働中の場合、まずEEPROMに保存されたSSID/Keyの消去することで新規設定ができます。EEPROMのSSID/Keyを消去するには、ボタンAを押しながら電源オンし"SSID/Key erased"が表示されるまでボタンAを押し続けます。まもなく"configuration portal"が起動します。
 
-### (4) 60kHzを使用
-　JJY信号は、福島県の送信所から40kHz、佐賀県の送信所から60kHzで送信されています。東日本の場合、疑似JJY信号を60kHzとすることで、福島からの信号に同期したのか、疑似信号に同期したのかを区別することができます。疑似信号を40kHzに設定するには、BF-018Rev2.inoのledc_frequencyを40000に修正ください。
+### (4) ~~60~~40kHzを使用
+　JJY信号は、福島県の送信所から40kHz、佐賀県の送信所から60kHzで送信されています。PWM周波数は40kHzとしています。ESP32では60KHzぴったりの信号を生成できませんが、かなり近い周波数で生成できます。東日本の場合、疑似JJY信号を60kHzとすることで、福島からの信号に同期したのか、疑似信号に同期したのかを区別することができます。疑似信号を~~40~~60kHzに設定するには、BF-018ARev2.inoのledc_frequencyを~~40000~~60000に修正ください。
 
 ``` BF-018Rev2.ino
-//..:....1....:....2....:....3....:....4....:....5....:....6....:....7..
-// TCO(Time Code Output)
-Ticker tk;
-const int ticker_interval_ms(100);  // 100ms
-const int marker(0xff);  // marker code TcoValue() returns
-
 // PWM for TCO signal
 const uint8_t  ledc_pin(26);           // GPIO26 for TCO
 const uint8_t  ledc_channel(0);
-const uint32_t ledc_frequency(60000);  // 40kHz(east), 60kHz(west)
-const uint8_t  ledc_resolution(2);     // 2^2 = 4
-const uint32_t ledc_duty_on(2);        // 2/4 = 50%
+const uint32_t ledc_frequency(40000);  // 40kHz(east), 60kHz(west)
+const uint8_t  ledc_resolution(8);     // 2^8 = 256
+const uint32_t ledc_duty_on(128);      // 128/256 = 50%
 const uint32_t ledc_duty_off(0);       // 0
 ```
 

@@ -396,7 +396,7 @@ int Parity8(int a)
 // LCD
 TFT_eSprite spr = TFT_eSprite(&M5.Lcd);
 
-const int lcd_brightness(10);  // backlight 7-12
+//const int lcd_brightness(12);  // backlight 7-12 (--> 0-100 API-spec. changed)
 const int lcd_direction(1);    // 0:up 1:left 2:down 3:right
 const int text_size(1);        // 1-7
 
@@ -438,7 +438,8 @@ void LcdTimerStart()
 void LcdOn()
 {
   if (!lcd_on) {
-    M5.Axp.ScreenBreath(lcd_brightness);
+//    M5.Axp.ScreenBreath(lcd_brightness);
+    M5.Axp.ScreenSwitch(true);
     lcd_on = true;
   }
 }
@@ -446,7 +447,8 @@ void LcdOn()
 void LcdOff()
 {
   if (lcd_on) {
-    M5.Axp.ScreenBreath(0);
+//    M5.Axp.ScreenBreath(0);
+    M5.Axp.ScreenSwitch(false);
     LcdClear();
     lcd_on = false;
   }

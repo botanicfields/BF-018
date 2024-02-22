@@ -1,33 +1,44 @@
 # JJY Simulator for M5StickC and M5StickC Plus
 ## M5StickC, M5StickC Plusで動作する標準電波(JJY)シミュレータ
 
+### 2024/2/22 修正
+- BF-018Rev3を公開しました。M5StickC, M5StickC Plus, M5StickC Plus2に対応しています。
 ### 2023/10/9 修正
 - BF-018Rev2.inoにおいてLCDバックライトに関するライブラリ非互換に対処しました。
 ### 2023/4/27 修正
 - BF-018Rev2.inoにおいてPWMの設定を改善しました。
 
+### Rev.3
+- フォルダ: BF-018Rev3
+- ソース修正不要で、M5StickC, M5StickC Plus, M5StickC Plus2に対応します。
+- Arduino IDEのBoards managerで、上記対象のBoardのいずれかを選択してください。
+- 機能についてはRev.2から変更ありません。
+- 変更内容は、「9. Rev3 変更内容」を参照ください。
+
 ### Rev.2
 - フォルダ: BF-018Rev2
+- Rev.3は、Rev.2を改良したものです。Rev.3をご使用ください。
 - M5StickCの場合は、#define M5STICKCPLUS をコメントアウトしてください。
 - 変更内容は、「8. Rev2 変更内容」を参照ください
 
 ### Rev.1(無印)
 - フォルダ: BF-018
-- M5StickCPlusの場合は、#include <M5StickC.h> をコメントアウトして無効にし、#include <M5StickCPlus.h> を有効にしてください。
 - Rev.2は、Rev.1を改良したものです。Rev.2をご使用ください。
+- M5StickCPlusの場合は、#include <M5StickC.h> をコメントアウトして無効にし、#include <M5StickCPlus.h> を有効にしてください。
 
 ## 1. 概要
 　M5StickC/CPlusで電波時計のためのJJY信号もどきを生成します。JJY信号が届かないところにある電波時計の時刻合わせができます。Wifi経由のNTPで時刻を取得し、GPIOからJJY信号を出力します。
 - Qiita [標準電波 JJY もどきを M5StickC / M5Atom の Ticker で生成する](https://qiita.com/BotanicFields/items/a78c80f947388caf0d36)
 
 ## 2. ソフトウェア
-　Rev.2を2023/10/9に確認した環境は以下のとおりです。
+　Rev.3を2024/2/22に確認した環境は以下のとおりです。
 #### Arduino IDE:
-- 2.2.1 (Windows11)
+- 2.3.2 (Windows11)
 #### Boards manager:
-- M5Stack by M5Stack official version 2.0.7
+- M5Stack by M5Stack official version 2.1.0
 #### Library:
-- M5StickC 0.2.8 / M5StickCPlus 0.1.0
+- M5Unified 0.1.12
+- M5GFX 0.1.12
 - tzapu/WifiManager by Tablatronix 2.0.16-rc.2
 
 ## 3. ハードウェア
@@ -112,5 +123,24 @@ WiFiManagerがconfig portalを起動した場合、アクセス先のSSIDとIP�
 　GFXFontを使用して適当な大きさの文字で表示する様にしました。フォルダにFree_Fonts.hを含めていますが、M5StickC Plusのライブラリの次回リリースで取り込まれると思いますので、それ以降は削除して参照部分も修正する予定です。
 
 - GitHub [Free_Fonts.h missing](https://github.com/m5stack/M5StickC-Plus/issues/38)
+
+## 8. Rev.2変更内容
+
+### (1) M5Unifiedを使用
+　M5Unifiedを使用し、ライブラリのincludeの修正を不要としました。Boards managerで使用するBoardをM5StickC, M5StickC Plus, M5StickC Plus2の中から選択してください。
+
+### (2) パラメータ類をソースの先頭に移動
+　JJY信号の周波数や、timezone, NTPサーバーなど、修正が必要な場合に便利な様にパラメータの修正を容易にしました。
+
+``` BF-018Rev2.ino
+//..:....1....:....2....:....3....:....4....:....5....:....6....:....7..
+// for TCO(Time Code Output)
+const int jjy_frequency(40000); // 40kHz(east), 60kHz(west)
+
+//..:....1....:....2....:....3....:....4....:....5....:....6....:....7..
+// for NTP
+const char* time_zone  = "JST-9";
+const char* ntp_server = "pool.ntp.org";
+```
 
 以上

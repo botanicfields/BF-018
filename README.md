@@ -1,5 +1,5 @@
-# JJY Simulator for M5StickC and M5StickC Plus
-## M5StickC, M5StickC Plusで動作する標準電波(JJY)シミュレータ
+# JJY Simulator for M5StickC, M5StickC Plus and M5StickC Plus2
+## M5StickC, M5StickC Plus, M5StickC Plus2で動作する標準電波(JJY)シミュレータ
 
 ### 2024/2/22 修正
 - BF-018Rev3を公開しました。M5StickC, M5StickC Plus, M5StickC Plus2に対応しています。

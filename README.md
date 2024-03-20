@@ -1,6 +1,8 @@
 # JJY Simulator for M5StickC, M5StickC Plus and M5StickC Plus2
 ## M5StickC, M5StickC Plus, M5StickC Plus2で動作する標準電波(JJY)シミュレータ
 
+### 2024/3/20 修正
+- BF-018Rev3.ino を修正しました。コンパイラ警告レベルをデフォルトよりも上げると、Serial.printf()の%d指定でエラーを検出していました。
 ### 2024/2/22 修正
 - BF-018Rev3を公開しました。M5StickC, M5StickC Plus, M5StickC Plus2に対応しています。
 ### 2023/10/9 修正

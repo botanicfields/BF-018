@@ -74,7 +74,6 @@ void DisplayInit()
   }
 
   canvas.createSprite(M5.Display.width(), canvas.fontHeight());
-  Serial.printf("[Display]font = %d\n",        canvas.getFont());
   Serial.printf("[Display]font height = %d\n", canvas.fontHeight());
   Serial.printf("[Display]text datum = %d\n",  canvas.getTextDatum());
 
@@ -293,7 +292,7 @@ void TcoInit()
 
   // for the first sample of statistics
   clock_gettime(CLOCK_REALTIME, &ts);
-  Serial.printf("ts.tv_nsec = %d\n", ts.tv_nsec);
+  Serial.printf("ts.tv_nsec = %ld\n", ts.tv_nsec);
 
   // start Ticker for TCO
   tk.attach_ms(ticker_interval_ms, TcoGen);

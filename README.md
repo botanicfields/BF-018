@@ -1,6 +1,8 @@
 # JJY Simulator for M5StickC, M5StickC Plus and M5StickC Plus2
 ## M5StickC, M5StickC Plus, M5StickC Plus2で動作する標準電波(JJY)シミュレータ
 
+### 2025/3/03 修正
+- BF-018ARev3.ino を修正しました。M5Unifiedの仕様変更に対応しcfg.serial_baudrateの指定を追加しました。
 ### 2024/3/20 修正
 - BF-018Rev3.ino を修正しました。コンパイラ警告レベルをデフォルトよりも上げると、Serial.printf()の%d指定でエラーを検出していました。
 ### 2024/2/22 修正
@@ -34,14 +36,15 @@
 
 ## 2. ソフトウェア
 　Rev.3を2024/2/22に確認した環境は以下のとおりです。
-#### Arduino IDE:
-- 2.3.2 (Windows11)
-#### Boards manager:
-- M5Stack by M5Stack official version 2.1.0
-#### Library:
-- M5Unified 0.1.12
-- M5GFX 0.1.12
-- tzapu/WifiManager by Tablatronix 2.0.16-rc.2
+
+| tool | item | 2025/3/3 |
+|:-:|:-:|:-:|
+|Application| Arduino-IDE | 2.3.4 |
+|Boards Manager| M5Stack by M5Stack official | 2.1.3 |
+|Library Manager| M5Unified by M5Stack | 0.2.4  |
+|Library Manager| M5GFX by M5Stack | 0.2.6  |
+|Library Manager| FastLED by Daniel Garcia | 3.9.13 |
+|Library Manager| WiFiManager by tzapu | 2.0.17 |
 
 ## 3. ハードウェア
 　JJY信号の送信にはアンテナが必要です。GPIO26とGND間に1kΩ程度の抵抗を途中に挟んで1m程度の電線を接続して実験できます。電線を電波時計の至近距離に這わせると電波時計が電線からの磁界を受信してくれます。M5StickC Plusは、M5StickCとは異なり、特にアンテナを接続しなくても時刻が合うことがあります。電波時計の機種にも依るかもしれません。

@@ -532,6 +532,7 @@ const unsigned int loop_period_ms(100);
 void setup()
 {
   auto cfg = M5.config();
+  cfg.serial_baudrate = 115200;  // default=0. use Serial.print(). 
   M5.begin(cfg);
   delay(3000);
   Serial.println();
